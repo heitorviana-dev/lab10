@@ -40,15 +40,14 @@ O `sdpa` usa `torch.nn.functional.scaled_dot_product_attention`, que no backend 
 
 ## Métricas de Benchmark
 
-> Valores de referência obtidos em Google Colab T4 (15 GB VRAM).  
-> Substitua pelos seus valores reais ao executar.
+> Valores obtidos em execução no Google Colab T4 (15 GB VRAM).
 
 | Métrica | Sem KV Cache | Com KV Cache + SDPA | Δ |
 |---|---|---|---|
-| Tempo de geração (100 tokens) | ~180 s | ~12 s | ~15× mais rápido |
-| Throughput (tokens/s) | ~0.55 | ~8.3 | +7.75 tok/s |
-| Pico de VRAM (MB) | ~5.800 MB | ~1.400 MB | −76% |
-| VRAM modelo carregado (4-bit) | ~680 MB | ~680 MB | — |
+| Tempo de geração (100 tokens) | 375,33 s | 8,73 s | 43,0× mais rápido |
+| Throughput (tokens/s) | 0,27 | 11,46 | +11,2 tok/s |
+| Pico de VRAM (MB) | 5.865,3 MB | 5.715,5 MB | −2,6% |
+| VRAM modelo carregado (4-bit) | 758,3 MB | 758,3 MB | Pico inicial: 814,3 MB |
 | Tokens no contexto (após truncamento) | 4.096 | 4.096 | — |
 | Implementação de atenção | sdpa | sdpa | — |
 
